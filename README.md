@@ -1,5 +1,5 @@
 # Tools
-##Docker
+## Docker
 ### - dockerfile to create the application
 ### - docker-compose to enable the connection between the applicaiton and DB
 ## Pipeline
