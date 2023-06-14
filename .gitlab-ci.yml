@@ -1,0 +1,18 @@
+stages:          
+  - build
+   
+variables:
+  Image_Name: $DOCKER_USERNAME/instabuginternship_app:1
+
+build-push-job: 
+    tags:
+      - $RUNNER
+    image: docker:23.0.1-dind        
+    stage: build
+    script:
+        - echo "building .."
+        - docker-compose down && docker-compose up
+        - echo "Logging to docker hub"
+        - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+        - echo "Pushing the image..."
+        - docker push $Image_Name:1
